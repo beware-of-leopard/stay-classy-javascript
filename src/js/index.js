@@ -44,61 +44,53 @@ function expect(target) {
 //              YOUR CODE GOES HERE AND ONLY HERE
 
 
-//////const DEFAULT
 
-//look into assign 
+const DEFAULT_COLOR = "black";
+const DEFAULT_HUNGRY = true;
+const DEFAULT_STATUS = "normal";
+const DEFAULT_OWNER = undefined;
+
 
 class Dog {
 
-	constructor(options){
-		if (options){
-			if (options.color)
-			this.color = options.color;
-			if (options.hungry === false){
-        // console.log(options);
-				this.hungry = false;
-			}else{
-        this.hungry = true;
-      }
-      if(options.status){
-          this.status = options.status;
-      }else{
-        this.status = "normal";
-      };
-			
-		};
+	constructor(options = {}) {
+    this.options = Object.assign({
+      color: DEFAULT_COLOR,
+      hungry: DEFAULT_HUNGRY,
+      status: DEFAULT_STATUS,
+      owner: DEFAULT_OWNER
+    }, options);
+
+    var {color, hungry, status, owner} = this.options;
+    this.status = status;
+    this.hungry = hungry;
+    this.color = color;
+    this.owner = owner;
 	}
-
-			
-
 
 }
 
+const DEFAULT_COOL = false;
+
 class Human {
 
-  	constructor(options){
-  		if (options){
-  			if (options.cool === true){
-  				this.cool = true;
-  			}else{
-          this.cool = false;
-        }
-  			
+  	constructor(options = {}){
+      this.options = Object.assign({
+        cool: DEFAULT_COOL
+      }, options);
 
-  		}else{
-         this.cool = false;
-
-      }
-  		
-    }
+      var {cool} = this.options;
+      this.cool = cool;
   	
-  pet (dog){
-      dog.status = "happy";
-    }
+  
+}
+    pet (dog){
+          dog.status = "happy";
+        }
 
-  feed (dog){
-    dog.hungry = false;
-  }
+      feed (dog){
+        dog.hungry = false;
+      }
 }
 
 // â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘â†‘
